@@ -2,12 +2,15 @@
 
 #include "Configuration/RickAndMortyConfigurationFactory.h"
 
-void URickAndMortyFunctionLibrary::GetCharacterById(UObject* WorldContextObject, int32 Id, URickAndMortyCharacter*& Result, struct FLatentActionInfo LatentInfo)
+void URickAndMortyFunctionLibrary::GetCharacterById(UObject* WorldContextObject, int32 Id,
+                                                    URickAndMortyCharacter*& Result,
+                                                    struct FLatentActionInfo LatentInfo)
 {
     return GetDataSource(WorldContextObject)->Find(WorldContextObject, Id, Result, LatentInfo);
 }
 
-void URickAndMortyFunctionLibrary::GetCharactersCount(UObject* WorldContextObject, int32& Result, struct FLatentActionInfo LatentInfo)
+void URickAndMortyFunctionLibrary::GetCharactersCount(UObject* WorldContextObject, int32& Result,
+                                                      struct FLatentActionInfo LatentInfo)
 {
     return GetDataSource(WorldContextObject)->Count(WorldContextObject, Result, LatentInfo);
 }

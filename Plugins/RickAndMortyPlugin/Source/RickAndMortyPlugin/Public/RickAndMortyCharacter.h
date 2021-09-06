@@ -13,8 +13,9 @@ class RICKANDMORTYPLUGIN_API URickAndMortyCharacter : public UObject
 
 public:
     URickAndMortyCharacter(): Super() {}
+
     URickAndMortyCharacter(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer) {}
-    
+
     UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Rick And Morty | Character")
     FString Name;
 

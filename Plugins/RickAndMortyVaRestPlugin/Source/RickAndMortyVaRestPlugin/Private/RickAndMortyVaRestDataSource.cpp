@@ -4,12 +4,14 @@
 #include "VaRestSubsystem.h"
 #include "Configuration/RickAndMortyVaRestConfigurationFactory.h"
 
-void URickAndMortyVaRestDataSource::Find(UObject* WorldContextObject, int32 Id, URickAndMortyCharacter*& Result, struct FLatentActionInfo LatentInfo)
+void URickAndMortyVaRestDataSource::Find(UObject* WorldContextObject, int32 Id, URickAndMortyCharacter*& Result,
+                                         struct FLatentActionInfo LatentInfo)
 {
-    URickAndMortyVaRestConfiguration* Configuration = URickAndMortyVaRestConfigurationFactory::CreateFromCurrentSettings(GetOuter());
+    URickAndMortyVaRestConfiguration* Configuration =
+        URickAndMortyVaRestConfigurationFactory::CreateFromCurrentSettings(GetOuter());
 
     FindLatentAction_Create(WorldContextObject, Result, LatentInfo);
-    
+
     FVaRestCallDelegate Delegate = FVaRestCallDelegate();
     Delegate.BindDynamic(this, &URickAndMortyVaRestDataSource::OnFindRequestComplete);
     GEngine->GetEngineSubsystem<UVaRestSubsystem>()->CallURL(
@@ -23,8 +25,9 @@ void URickAndMortyVaRestDataSource::Find(UObject* WorldContextObject, int32 Id, 
 
 void URickAndMortyVaRestDataSource::OnFindRequestComplete(UVaRestRequestJSON* Request)
 {
-    URickAndMortyVaRestConfiguration* Configuration = URickAndMortyVaRestConfigurationFactory::CreateFromCurrentSettings(GetOuter());
-    
+    URickAndMortyVaRestConfiguration* Configuration =
+        URickAndMortyVaRestConfigurationFactory::CreateFromCurrentSettings(GetOuter());
+
     UVaRestJsonObject* Response = Request->GetResponseValue()->AsObject();
     URickAndMortyCharacter* Character = URickAndMortyCharacterFactory::CreateFromValues(
         GetResponseFieldAsString(Request, Configuration->GetCharacter_DataMapping_Name),
@@ -36,7 +39,7 @@ void URickAndMortyVaRestDataSource::OnFindRequestComplete(UVaRestRequestJSON* Re
         GetResponseFieldAsString(Request, Configuration->GetCharacter_DataMapping_Location),
         GetResponseFieldAsString(Request, Configuration->GetCharacter_DataMapping_Image)
     );
-    
+
     FindLatentAction_Complete(Character);
 }
 
@@ -45,9 +48,11 @@ void URickAndMortyVaRestDataSource::FindLatentAction_Cancel()
     // TODO: Cancel http request
 }
 
-void URickAndMortyVaRestDataSource::Count(UObject* WorldContextObject, int32& Result, struct FLatentActionInfo LatentInfo)
+void URickAndMortyVaRestDataSource::Count(UObject* WorldContextObject, int32& Result,
+                                          struct FLatentActionInfo LatentInfo)
 {
-    URickAndMortyVaRestConfiguration* Configuration = URickAndMortyVaRestConfigurationFactory::CreateFromCurrentSettings(GetOuter());
+    URickAndMortyVaRestConfiguration* Configuration =
+        URickAndMortyVaRestConfigurationFactory::CreateFromCurrentSettings(GetOuter());
 
     CountLatentAction_Create(WorldContextObject, Result, LatentInfo);
 
@@ -64,12 +69,13 @@ void URickAndMortyVaRestDataSource::Count(UObject* WorldContextObject, int32& Re
 
 void URickAndMortyVaRestDataSource::OnCountRequestComplete(UVaRestRequestJSON* Request)
 {
-    URickAndMortyVaRestConfiguration* Configuration = URickAndMortyVaRestConfigurationFactory::CreateFromCurrentSettings(GetOuter());
-    
+    URickAndMortyVaRestConfiguration* Configuration =
+        URickAndMortyVaRestConfigurationFactory::CreateFromCurrentSettings(GetOuter());
+
     UVaRestJsonObject* Response = Request->GetResponseValue()->AsObject();
-    
+
     CountLatentAction_Complete(
-    GetResponseFieldAsInteger(Request, Configuration->GetCount_DataMapping_Count)
+        GetResponseFieldAsInteger(Request, Configuration->GetCount_DataMapping_Count)
     );
 }
 
@@ -99,5 +105,5 @@ UVaRestJsonValue* URickAndMortyVaRestDataSource::GetResponseField(UVaRestRequest
         Root = Root->GetObjectField(Parts[i]);
     }
 
-    return Root->GetField(Parts[Parts.Num()-1]);
+    return Root->GetField(Parts[Parts.Num() - 1]);
 }

@@ -11,15 +11,17 @@ UCLASS(Blueprintable, BlueprintType, EditInlineNew)
 class RICKANDMORTYMOCKPLUGIN_API URickAndMortyMockDataSource : public URickAndMortyDataSource
 {
     GENERATED_BODY()
-    
+
 public:
     URickAndMortyMockDataSource(): Super() {}
+
     URickAndMortyMockDataSource(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer) {}
 
     /**
     * Find character by ID
     */
-    virtual void Find(UObject* WorldContextObject, int32 Id, URickAndMortyCharacter*& Result, struct FLatentActionInfo LatentInfo) override;
+    virtual void Find(UObject* WorldContextObject, int32 Id, URickAndMortyCharacter*& Result,
+                      struct FLatentActionInfo LatentInfo) override;
 
     /**
     * Get characters count

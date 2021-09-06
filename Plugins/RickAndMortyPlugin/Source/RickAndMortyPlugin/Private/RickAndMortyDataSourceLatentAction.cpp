@@ -2,7 +2,7 @@
 
 #include "RickAndMortyDataSource.h"
 
-template<>
+template <>
 void FRickAndMortyDataSourceLatentAction<URickAndMortyCharacter*>::Cancel()
 {
     UObject* Obj = DataSource.Get();
@@ -12,7 +12,7 @@ void FRickAndMortyDataSourceLatentAction<URickAndMortyCharacter*>::Cancel()
     }
 }
 
-template<>
+template <>
 void FRickAndMortyDataSourceLatentAction<int32>::Cancel()
 {
     UObject* Obj = DataSource.Get();

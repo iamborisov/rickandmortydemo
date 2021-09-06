@@ -27,7 +27,7 @@ public class RickAndMortyVaRestPlugin : ModuleRules
 			{
 				"Core",
 				"DeveloperSettings",
-				
+
 				"VaRest",
 
 				"RickAndMortyPlugin",

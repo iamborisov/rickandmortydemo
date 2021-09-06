@@ -1,6 +1,7 @@
 #include "RickAndMortyDataSource.h"
 
-void URickAndMortyDataSource::Find(UObject* WorldContextObject, int32 Id, URickAndMortyCharacter*& Result, struct FLatentActionInfo LatentInfo)
+void URickAndMortyDataSource::Find(UObject* WorldContextObject, int32 Id, URickAndMortyCharacter*& Result,
+                                   struct FLatentActionInfo LatentInfo)
 {
     FindLatentAction_Create(WorldContextObject, Result, LatentInfo);
     FindLatentAction_Complete(nullptr);
@@ -12,12 +13,15 @@ void URickAndMortyDataSource::Count(UObject* WorldContextObject, int32& Result, 
     CountLatentAction_Complete(0);
 }
 
-void URickAndMortyDataSource::FindLatentAction_Create(UObject* WorldContextObject, URickAndMortyCharacter*& Result, struct FLatentActionInfo LatentInfo)
+void URickAndMortyDataSource::FindLatentAction_Create(UObject* WorldContextObject, URickAndMortyCharacter*& Result,
+                                                      struct FLatentActionInfo LatentInfo)
 {
     if (UWorld* World = GEngine->GetWorldFromContextObjectChecked(WorldContextObject))
     {
         FLatentActionManager& LatentActionManager = World->GetLatentActionManager();
-        FRickAndMortyDataSourceLatentAction<URickAndMortyCharacter*>* ActionInstance = LatentActionManager.FindExistingAction<FRickAndMortyDataSourceLatentAction<URickAndMortyCharacter*>>(LatentInfo.CallbackTarget, LatentInfo.UUID);
+        FRickAndMortyDataSourceLatentAction<URickAndMortyCharacter*>* ActionInstance = LatentActionManager.
+            FindExistingAction<FRickAndMortyDataSourceLatentAction<URickAndMortyCharacter*>>(
+                LatentInfo.CallbackTarget, LatentInfo.UUID);
 
         if (ActionInstance != nullptr)
         {
@@ -25,7 +29,9 @@ void URickAndMortyDataSource::FindLatentAction_Create(UObject* WorldContextObjec
             LatentActionManager.RemoveActionsForObject(LatentInfo.CallbackTarget);
         }
 
-        LatentActionManager.AddNewAction(LatentInfo.CallbackTarget, LatentInfo.UUID, FindLatentAction = new FRickAndMortyDataSourceLatentAction<URickAndMortyCharacter*>(this, Result, LatentInfo));
+        LatentActionManager.AddNewAction(LatentInfo.CallbackTarget, LatentInfo.UUID,
+                                         FindLatentAction = new FRickAndMortyDataSourceLatentAction<
+                                             URickAndMortyCharacter*>(this, Result, LatentInfo));
     }
 }
 
@@ -45,12 +51,14 @@ void URickAndMortyDataSource::FindLatentAction_Cancel()
     /*_*/
 }
 
-void URickAndMortyDataSource::CountLatentAction_Create(UObject* WorldContextObject, int32& Result, struct FLatentActionInfo LatentInfo)
+void URickAndMortyDataSource::CountLatentAction_Create(UObject* WorldContextObject, int32& Result,
+                                                       struct FLatentActionInfo LatentInfo)
 {
     if (UWorld* World = GEngine->GetWorldFromContextObjectChecked(WorldContextObject))
     {
         FLatentActionManager& LatentActionManager = World->GetLatentActionManager();
-        FRickAndMortyDataSourceLatentAction<int32>* ActionInstance = LatentActionManager.FindExistingAction<FRickAndMortyDataSourceLatentAction<int32>>(LatentInfo.CallbackTarget, LatentInfo.UUID);
+        FRickAndMortyDataSourceLatentAction<int32>* ActionInstance = LatentActionManager.FindExistingAction<
+            FRickAndMortyDataSourceLatentAction<int32>>(LatentInfo.CallbackTarget, LatentInfo.UUID);
 
         if (ActionInstance != nullptr)
         {
@@ -58,7 +66,9 @@ void URickAndMortyDataSource::CountLatentAction_Create(UObject* WorldContextObje
             LatentActionManager.RemoveActionsForObject(LatentInfo.CallbackTarget);
         }
 
-        LatentActionManager.AddNewAction(LatentInfo.CallbackTarget, LatentInfo.UUID, CountLatentAction = new FRickAndMortyDataSourceLatentAction<int32>(this, Result, LatentInfo));
+        LatentActionManager.AddNewAction(LatentInfo.CallbackTarget, LatentInfo.UUID,
+                                         CountLatentAction = new FRickAndMortyDataSourceLatentAction<int32>(
+                                             this, Result, LatentInfo));
     }
 }
 

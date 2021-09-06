@@ -15,8 +15,10 @@ class RICKANDMORTYMOCKPLUGIN_API URickAndMortyMockConfigurationDeveloperSettings
 
 public:
     URickAndMortyMockConfigurationDeveloperSettings(): Super() {}
-    URickAndMortyMockConfigurationDeveloperSettings(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer) {}
-    
+
+    URickAndMortyMockConfigurationDeveloperSettings(const FObjectInitializer& ObjectInitializer): Super(
+        ObjectInitializer) {}
+
     UPROPERTY(Config, BlueprintReadOnly, EditAnywhere, Category = "Rick And Morty | Get Character | Mock")
     FString Name = RICKANDMORTYMOCKPLUGIN_CONFIGURATION_DEFAULT_NAME;
 

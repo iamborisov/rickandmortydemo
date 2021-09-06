@@ -15,8 +15,9 @@ class RICKANDMORTYVARESTPLUGIN_API URickAndMortyVaRestConfigurationFactory : pub
 
 public:
     URickAndMortyVaRestConfigurationFactory(): Super() {}
+
     URickAndMortyVaRestConfigurationFactory(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer) {}
-    
+
     /**
      * Create configuration data struct with default values
      */

@@ -16,8 +16,10 @@ class RICKANDMORTYVARESTPLUGIN_API URickAndMortyVaRestConfigurationDeveloperSett
 
 public:
     URickAndMortyVaRestConfigurationDeveloperSettings(): Super() {}
-    URickAndMortyVaRestConfigurationDeveloperSettings(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer) {}
-    
+
+    URickAndMortyVaRestConfigurationDeveloperSettings(const FObjectInitializer& ObjectInitializer): Super(
+        ObjectInitializer) {}
+
     /*
      * Endpoint "Get Character" settings
      */

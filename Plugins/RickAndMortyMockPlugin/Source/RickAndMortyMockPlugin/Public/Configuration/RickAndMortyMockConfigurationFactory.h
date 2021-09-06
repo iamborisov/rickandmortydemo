@@ -15,8 +15,9 @@ class RICKANDMORTYMOCKPLUGIN_API URickAndMortyMockConfigurationFactory : public 
 
 public:
     URickAndMortyMockConfigurationFactory(): Super() {}
+
     URickAndMortyMockConfigurationFactory(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer) {}
-    
+
     /**
      * Create configuration data struct with default values
      */

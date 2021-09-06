@@ -20,15 +20,14 @@ public:
 
     void Cancel();
 
-    FRickAndMortyDataSourceLatentAction(FWeakObjectPtr DataSourceObj, T& ResultParam, const FLatentActionInfo& LatentInfo)
+    FRickAndMortyDataSourceLatentAction(FWeakObjectPtr DataSourceObj, T& ResultParam,
+                                        const FLatentActionInfo& LatentInfo)
         : Called(false)
-        , DataSource(DataSourceObj)
-        , ExecutionFunction(LatentInfo.ExecutionFunction)
-        , OutputLink(LatentInfo.Linkage)
-        , CallbackTarget(LatentInfo.CallbackTarget)
-        , Result(ResultParam)
-    {
-    }
+          , DataSource(DataSourceObj)
+          , ExecutionFunction(LatentInfo.ExecutionFunction)
+          , OutputLink(LatentInfo.Linkage)
+          , CallbackTarget(LatentInfo.CallbackTarget)
+          , Result(ResultParam) {}
 
     virtual void UpdateOperation(FLatentResponse& Response) override
     {

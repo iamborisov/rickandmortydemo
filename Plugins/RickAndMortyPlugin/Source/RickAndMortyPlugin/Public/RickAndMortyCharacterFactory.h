@@ -14,8 +14,9 @@ class RICKANDMORTYPLUGIN_API URickAndMortyCharacterFactory : public UObject
 
 public:
     URickAndMortyCharacterFactory(): Super() {}
+
     URickAndMortyCharacterFactory(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer) {}
-    
+
     /**
     * Create empty character object
     */

@@ -15,8 +15,9 @@ class RICKANDMORTYPLUGIN_API URickAndMortyConfigurationFactory : public UObject
 
 public:
     URickAndMortyConfigurationFactory(): Super() {}
+
     URickAndMortyConfigurationFactory(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer) {}
-    
+
     /**
      * Create configuration data struct with default values
      */

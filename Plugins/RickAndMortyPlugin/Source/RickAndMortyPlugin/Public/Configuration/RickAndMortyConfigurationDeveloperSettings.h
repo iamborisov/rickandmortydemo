@@ -16,8 +16,9 @@ class RICKANDMORTYPLUGIN_API URickAndMortyConfigurationDeveloperSettings : publi
 
 public:
     URickAndMortyConfigurationDeveloperSettings(): Super() {}
+
     URickAndMortyConfigurationDeveloperSettings(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer) {}
-    
+
     UPROPERTY(Config, BlueprintReadOnly, EditAnywhere, Category = "Rick And Morty")
     TSubclassOf<URickAndMortyDataSource> DataSourceClass;
 };

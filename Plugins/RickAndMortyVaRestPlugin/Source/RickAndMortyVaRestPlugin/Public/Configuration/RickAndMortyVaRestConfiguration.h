@@ -15,8 +15,9 @@ class RICKANDMORTYVARESTPLUGIN_API URickAndMortyVaRestConfiguration : public UOb
 
 public:
     URickAndMortyVaRestConfiguration(): Super() {}
+
     URickAndMortyVaRestConfiguration(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer) {}
-    
+
     /*
      * Endpoint "Get Character" settings
      */

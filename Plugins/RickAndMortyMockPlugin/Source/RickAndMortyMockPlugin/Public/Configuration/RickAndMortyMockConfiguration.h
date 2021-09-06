@@ -14,6 +14,7 @@ class RICKANDMORTYMOCKPLUGIN_API URickAndMortyMockConfiguration : public UObject
 
 public:
     URickAndMortyMockConfiguration(): Super() {}
+
     URickAndMortyMockConfiguration(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer) {}
 
     UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Rick And Morty | Get Character | Mock")

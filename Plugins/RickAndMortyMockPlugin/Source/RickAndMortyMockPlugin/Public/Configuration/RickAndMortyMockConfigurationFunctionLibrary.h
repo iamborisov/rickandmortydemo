@@ -16,6 +16,7 @@ public:
     /**
      * Get plugin configuration
      */
-    UFUNCTION(BlueprintCallable, meta = (WorldContext = "WorldContextObject"), Category = "Rick And Morty | Configuration | Mock")
+    UFUNCTION(BlueprintCallable, meta = (WorldContext = "WorldContextObject"),
+        Category = "Rick And Morty | Configuration | Mock")
     static URickAndMortyMockConfiguration* GetConfiguration(UObject* WorldContextObject);
 };
