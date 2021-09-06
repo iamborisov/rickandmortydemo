@@ -24,11 +24,8 @@
 # Compiled Static libraries
 *.lai
 *.la
-!Plugins/InfraworldRuntime/GrpcIncludes/third_party/protobuf/src/solaris/*.la
 *.a
 *.lib
-!Plugins/InfraworldRuntime/GrpcLibraries/Win64/*.lib
-!Plugins/InfraworldRuntime/GrpcIncludes/*/*.lib
 
 # Executables
 *.exe
@@ -82,3 +79,7 @@ DerivedDataCache/*
 
 # AutoSizeComments cache
 Plugins/AutoSizeComments/ASCCache/
+
+# SteamVR configuration files
+Config/SteamVRBindings/
+Config/steamvr_ue_editor_app.json
